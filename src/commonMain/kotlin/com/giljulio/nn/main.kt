@@ -7,6 +7,7 @@ import com.giljulio.nn.model.Neuron
 import com.giljulio.nn.trainer.Trainer
 import com.giljulio.nn.util.randomBias
 import com.giljulio.nn.util.randomWeight
+import kotlin.random.Random
 
 
 fun main() {
@@ -19,18 +20,8 @@ fun main() {
     )
 
     // Training data for the AND function
-    val trainingInputs = listOf(
-        listOf(0.0, 0.0),
-        listOf(0.0, 1.0),
-        listOf(1.0, 0.0),
-        listOf(1.0, 1.0)
-    )
-    val trainingTargets = listOf(
-        listOf(0.0),
-        listOf(0.0),
-        listOf(0.0),
-        listOf(1.0)
-    )
+    val trainingInputs = List(100) { listOf(Random.nextInt(2).toDouble(), Random.nextInt(2).toDouble()) }
+    val trainingTargets = trainingInputs.map { (a, b) -> listOf((a.toInt() and b.toInt()).toDouble()) }
 
     trainer.trainAll(trainingInputs, trainingTargets)
 

@@ -17,6 +17,7 @@ class Trainer(
         }
 
         for (i in inputs.indices) {
+            print("Training $i: ${inputs[i]} -> ${targets[i]}")
             train(inputs[i], targets[i])
         }
     }
