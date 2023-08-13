@@ -15,7 +15,7 @@ fun main() {
         evaluator = MeanSquaredErrorEvaluator(),
         network = network,
         iterations = 100000,
-        learningRate = 0.3,
+        learningRate = 0.01,
     )
 
     // Training data for the AND function
