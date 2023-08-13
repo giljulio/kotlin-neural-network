@@ -1,5 +1,5 @@
-package com.giljulio.nn
+package com.giljulio.nn.model
 
-class Layer(private val neurons: List<Neuron>) {
+class Layer(vararg val neurons: Neuron) {
     fun forward(inputs: List<Double>): List<Double> = neurons.map { neuron -> neuron.forward(inputs) }
 }

@@ -1,6 +1,6 @@
-package com.giljulio.nn
+package com.giljulio.nn.model
 
-class Network(private val layers: List<Layer>) {
+class Network(vararg val layers: Layer) {
     fun forward(inputs: List<Double>): List<Double> {
         var currentInputs = inputs
         for (layer in layers) {

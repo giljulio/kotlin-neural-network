@@ -1,6 +1,9 @@
-package com.giljulio.nn
+package com.giljulio.nn.model
 
-class Neuron(private val weights: List<Double>, private val bias: Double) {
+class Neuron(val weights: MutableList<Double>, var bias: Double) {
+
+    constructor(vararg weights: Double, bias: Double) : this(weights.toMutableList(), bias)
+
     fun forward(inputs: List<Double>): Double {
         if (weights.size != inputs.size) {
             throw IllegalArgumentException("Number of weights and inputs must be the same")
